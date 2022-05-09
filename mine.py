@@ -11,7 +11,7 @@ console = Console()
 while 0 < 1:
 
     # Generation de l'adresse
-    priv = sha256(str(random.randint(0,100)))
+    priv = random_key()
     pub = privtopub(priv)
     addr = pubtoaddr(pub)
     h = history(addr)
@@ -27,9 +27,15 @@ while 0 < 1:
     if int(balance) > 0:
         with open("adresses.txt", "a") as fichier:
             fichier.write(text)
+            fichier.close
+
+    if int(balance) == 0:
+        with open("nopes.txt", "a") as fichier:
+            fichier.write(text)
+            fichier.close
 
     console.print("[bold cyan]Adresse:[/bold cyan] " + addr + " [bold magenta]=>[/bold magenta] " + balance)
-    time.sleep(10)
-
+    print (random_key())
+    time.sleep(5)
 
         
