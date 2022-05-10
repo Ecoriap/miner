@@ -6,8 +6,16 @@ import json
 from rich.console import Console
 import time
 import random
+import pyfiglet
 
 console = Console()
+
+ascii_banner = pyfiglet.figlet_format("MyEcoria")
+
+console.print("[bold cyan]" + ascii_banner + "[/bold cyan]")
+print ("===============================================================================================")
+console.print("[bold magenta] Ce script génére automatiquement des wallet, si il y a de la moulaga, \n il enregistre les informations dans le fichier adresses.txt à la racine \n du script sinon il l'enregistre dans nopes.txt [/bold magenta]")
+print ("===============================================================================================")
 while 0 < 1:
 
     # Generation de l'adresse
@@ -37,5 +45,3 @@ while 0 < 1:
     console.print("[bold cyan]Adresse:[/bold cyan] " + addr + " [bold magenta]=>[/bold magenta] " + balance)
     
     time.sleep(5)
-
-        
