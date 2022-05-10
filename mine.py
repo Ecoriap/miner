@@ -35,7 +35,7 @@ while 0 < 1:
             fichier.close
 
     console.print("[bold cyan]Adresse:[/bold cyan] " + addr + " [bold magenta]=>[/bold magenta] " + balance)
-    print (random_key())
+    
     time.sleep(5)
 
         
