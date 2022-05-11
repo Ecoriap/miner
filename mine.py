@@ -8,6 +8,8 @@ import time
 import random
 import pyfiglet
 
+apis = {"0": "https://www.bitgo.com/api/v1/address/", "1": "https://blockchain.info/rawaddr/", "2": "https://chain.api.btc.com/v3/address/"}
+Napis = 0
 console = Console()
 
 ascii_banner = pyfiglet.figlet_format("MyEcoria")
@@ -24,11 +26,21 @@ while 0 < 1:
     addr = pubtoaddr(pub)
     h = history(addr)
 
-    # Récupération de la solde
-    url = "https://blockchain.info/rawaddr/" + addr
-    response = urlopen(url)
-    data_json = json.loads(response.read())
-    balance = str(data_json["final_balance"])
+    if Napis == 0:
+        # Récupération de la solde
+        url = "https://www.bitgo.com/api/v1/address/" + addr
+        response = urlopen(url)
+        data_json = json.loads(response.read())
+        balance = str(data_json["balance"])
+
+    if Napis == 1:
+        # Récupération de la solde
+        url = "https://blockchain.info/rawaddr/" + addr
+        response = urlopen(url)
+        data_json = json.loads(response.read())
+        balance = str(data_json["final_balance"])
+        Napis = 0
+
     text = "\n Clef privé: " + priv + ", clef publique: " + \
         pub + ", Adresse: " + addr + ", Solde: " + balance
 
@@ -44,4 +56,5 @@ while 0 < 1:
 
     console.print("[bold cyan]Adresse:[/bold cyan] " + addr + " [bold magenta]=>[/bold magenta] " + balance)
     
-    time.sleep(5)
+    time.sleep(2)
+    Napis += 1
