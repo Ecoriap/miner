@@ -39,7 +39,30 @@ while 0 < 1:
         response = urlopen(url)
         data_json = json.loads(response.read())
         balance = str(data_json["final_balance"])
+
+    if Napis == 2:
+        # Récupération de la solde
+        url = "https://api.blockcypher.com/v1/btc/main/addrs/" + addr + "/balance"
+        response = urlopen(url)
+        data_json = json.loads(response.read())
+        balance = str(data_json["balance"])
+
+    if Napis == 3:
+        # Récupération de la solde
+        url = "https://api-r.bitcoinchain.com/v1/address/" + addr
+        response = urlopen(url)
+        data_json = json.loads(response.read())
+        balance = str(data_json["balance"])
+
+    if Napis == 4:
+        # Récupération de la solde
+        url = "https://chainflyer.bitflyer.jp/v1/address/" + addr
+        response = urlopen(url)
+        data_json = json.loads(response.read())
+        balance = str(data_json["confirmed_balance"])
         Napis = 0
+
+
 
     text = "\n Clef privé: " + priv + ", clef publique: " + \
         pub + ", Adresse: " + addr + ", Solde: " + balance
@@ -56,5 +79,5 @@ while 0 < 1:
 
     console.print("[bold cyan]Adresse:[/bold cyan] " + addr + " [bold magenta]=>[/bold magenta] " + balance)
     
-    time.sleep(2)
+    time.sleep(0)
     Napis += 1
