@@ -72,7 +72,7 @@ while 0 < 1:
 
     console.print("[bold cyan]Adresse:[/bold cyan] " + addr + " [bold magenta]=>[/bold magenta] " + balance)
     
-    time.sleep(1.2)
+    time.sleep(1.4)
     Napis += 1
 
 
