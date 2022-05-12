@@ -7,7 +7,6 @@ from rich.console import Console
 import time
 import random
 import pyfiglet
-from blockcypher import get_address_overview
 
 Napis = 0
 console = Console()
