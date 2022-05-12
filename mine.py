@@ -49,13 +49,6 @@ while 0 < 1:
 
     if Napis == 3:
         # Récupération de la solde
-        
-        responce = get_address_overview(addr)
-        #data_json = json.loads(response.read())
-        balance = str(responce["balance"])
-
-    if Napis == 4:
-        # Récupération de la solde
         url = "https://chainflyer.bitflyer.jp/v1/address/" + addr
         response = urlopen(url)
         data_json = json.loads(response.read())
@@ -79,7 +72,7 @@ while 0 < 1:
 
     console.print("[bold cyan]Adresse:[/bold cyan] " + addr + " [bold magenta]=>[/bold magenta] " + balance)
     
-    time.sleep(1)
+    time.sleep(1.2)
     Napis += 1
 
 
