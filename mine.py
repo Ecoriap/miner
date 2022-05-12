@@ -7,12 +7,12 @@ from rich.console import Console
 import time
 import random
 import pyfiglet
+from blockcypher import get_address_overview
 
-apis = {"0": "https://www.bitgo.com/api/v1/address/", "1": "https://blockchain.info/rawaddr/", "2": "https://chain.api.btc.com/v3/address/"}
 Napis = 0
 console = Console()
 
-ascii_banner = pyfiglet.figlet_format("MyEcoria")
+ascii_banner = pyfiglet.figlet_format("MyEcoria . com")
 
 console.print("[bold cyan]" + ascii_banner + "[/bold cyan]")
 print ("===============================================================================================")
@@ -49,10 +49,10 @@ while 0 < 1:
 
     if Napis == 3:
         # Récupération de la solde
-        url = "https://api-r.bitcoinchain.com/v1/address/" + addr
-        response = urlopen(url)
-        data_json = json.loads(response.read())
-        balance = str(data_json["balance"])
+        
+        responce = get_address_overview(addr)
+        #data_json = json.loads(response.read())
+        balance = str(responce["balance"])
 
     if Napis == 4:
         # Récupération de la solde
@@ -79,5 +79,7 @@ while 0 < 1:
 
     console.print("[bold cyan]Adresse:[/bold cyan] " + addr + " [bold magenta]=>[/bold magenta] " + balance)
     
-    time.sleep(0)
+    time.sleep(1)
     Napis += 1
+
+
